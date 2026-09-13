@@ -40,9 +40,6 @@ all_e : a : Set -> p : (El a -> Prop) -> Prf (all a p) -> x : El a -> Prf (p x).
 ex_i : a : Set -> p : (El a -> Prop) -> t : El a -> Prf (p t) -> Prf (ex a p).
 ex_e : a : Set -> p : (El a -> Prop) -> Prf (ex a p) -> r : Prop -> (x : El a -> Prf (p x) -> Prf r) -> Prf r.
 
-pem : p : Prop -> Prf (or p (not p)).
-
-
 
 thm prop_double_neg : p : Prop -> Prf (imp p (not (not p))) 
 := p => imp_i p (not (not p)) (pP => neg_i (not p) (pNP => neg_e p pNP pP)).
